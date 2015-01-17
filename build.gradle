@@ -1,0 +1,36 @@
+buildscript {
+    ext {
+        springBootVersion = '1.2.1.RELEASE'
+        defaultEncoding = 'UTF-8'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+tasks.withType(AbstractCompile) each { it.options.encoding = defaultEncoding }
+tasks.withType(GroovyCompile) each { it.groovyOptions.encoding = defaultEncoding }
+
+jar {
+    baseName = 'groovy-template-from-java'
+    version = '0.1.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile(
+        ["org.codehaus.groovy:groovy-all:2.3.9"]
+    )
+
+    testCompile(
+        ["org.spockframework:spock-core:0.7-groovy-2.0"],
+        ["org.spockframework:spock-spring:0.7-groovy-2.0"]
+    )
+}
+

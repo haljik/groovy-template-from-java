@@ -1,2 +1,2 @@
-# groovy-template-from-java
+# groovy-template-in-java
 GroovyのテンプレートをJavaから使ってみる
